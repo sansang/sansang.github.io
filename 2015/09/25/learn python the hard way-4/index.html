@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -37,22 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
+<meta name="description" content="ex45 You Make A Game之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。
+主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unexpected trip">
-<meta property="og:url" content="sansang.github.io/2015/08/06/unexpected trip/index.html">
+<meta property="og:title" content="learn python the hard way-4">
+<meta property="og:url" content="sansang.github.io/2015/09/25/learn python the hard way-4/index.html">
 <meta property="og:site_name" content="step by step">
-<meta property="og:description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
-<meta property="og:updated_time" content="2015-08-06T15:27:39.000Z">
+<meta property="og:description" content="ex45 You Make A Game之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。
+主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式">
+<meta property="og:updated_time" content="2015-09-25T12:33:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unexpected trip">
-<meta name="twitter:description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
+<meta name="twitter:title" content="learn python the hard way-4">
+<meta name="twitter:description" content="ex45 You Make A Game之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。
+主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +59,7 @@
   };
 </script>
 
-  <title> unexpected trip | step by step </title>
+  <title> learn python the hard way-4 | step by step </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -177,7 +174,7 @@
           
           
             
-              unexpected trip
+              learn python the hard way-4
             
           
         </h1>
@@ -186,8 +183,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-06T23:27:39+08:00" content="2015-08-06">
-            2015-08-06
+          <time itemprop="dateCreated" datetime="2015-09-25T20:33:23+08:00" content="2015-09-25">
+            2015-09-25
           </time>
         </span>
 
@@ -196,8 +193,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/杂记/" itemprop="url" rel="index">
-                  <span itemprop="name">杂记</span>
+                <a href="/categories/修炼/" itemprop="url" rel="index">
+                  <span itemprop="name">修炼</span>
                 </a>
               </span>
 
@@ -220,27 +217,32 @@
       
 
       
-        <span itemprop="articleBody"><p>意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。</p>
-<p>进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。</p>
-<p>这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。</p>
+        <span itemprop="articleBody"><h3 id="ex45_You_Make_A_Game">ex45 You Make A Game</h3><p>之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。</p>
+<p>主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式的在线调试工具，之前不知道，瞎忙活了一天＝ ＝）</p>
+<p>考虑到下载量，为了节省时间（均衡负载有没有效果暂时不确定），需要加入多线程。介于线程小白，这块功能还得现炒现卖。等线程完善了，再把代码放到Github。</p>
+<p>最后，还是按照教程的任务，写游戏。教程快要完结了✌️</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/16/sleepless/" rel="prev">sleepless</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/04/be back/" rel="next">be back</a>
+              <a href="/2015/09/15/learn python the hard way-3/" rel="next">learn python the hard way-3</a>
             
           </div>
         </div>
@@ -344,7 +346,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex45_You_Make_A_Game"><span class="nav-number">1.</span> <span class="nav-text">ex45 You Make A Game</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -398,9 +400,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/08/06/unexpected trip/';
-      var disqus_title = 'unexpected trip';
-      var disqus_url = 'sansang.github.io/2015/08/06/unexpected trip/';
+      var disqus_identifier = '2015/09/25/learn python the hard way-4/';
+      var disqus_title = 'learn python the hard way-4';
+      var disqus_url = 'sansang.github.io/2015/09/25/learn python the hard way-4/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

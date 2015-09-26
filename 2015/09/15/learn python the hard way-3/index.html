@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -37,22 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
+<meta name="description" content="ex44 Inheritance Versus Compositionsuper()用在多继承里，避免了一些权限的问题，一般super()和init合用。看了一半PEP8。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unexpected trip">
-<meta property="og:url" content="sansang.github.io/2015/08/06/unexpected trip/index.html">
+<meta property="og:title" content="learn python the hard way-3">
+<meta property="og:url" content="sansang.github.io/2015/09/15/learn python the hard way-3/index.html">
 <meta property="og:site_name" content="step by step">
-<meta property="og:description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
-<meta property="og:updated_time" content="2015-08-06T15:27:39.000Z">
+<meta property="og:description" content="ex44 Inheritance Versus Compositionsuper()用在多继承里，避免了一些权限的问题，一般super()和init合用。看了一半PEP8。">
+<meta property="og:updated_time" content="2015-09-15T02:36:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unexpected trip">
-<meta name="twitter:description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
+<meta name="twitter:title" content="learn python the hard way-3">
+<meta name="twitter:description" content="ex44 Inheritance Versus Compositionsuper()用在多继承里，避免了一些权限的问题，一般super()和init合用。看了一半PEP8。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +56,7 @@
   };
 </script>
 
-  <title> unexpected trip | step by step </title>
+  <title> learn python the hard way-3 | step by step </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -177,7 +171,7 @@
           
           
             
-              unexpected trip
+              learn python the hard way-3
             
           
         </h1>
@@ -186,8 +180,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-06T23:27:39+08:00" content="2015-08-06">
-            2015-08-06
+          <time itemprop="dateCreated" datetime="2015-09-15T10:36:36+08:00" content="2015-09-15">
+            2015-09-15
           </time>
         </span>
 
@@ -196,8 +190,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/杂记/" itemprop="url" rel="index">
-                  <span itemprop="name">杂记</span>
+                <a href="/categories/修炼/" itemprop="url" rel="index">
+                  <span itemprop="name">修炼</span>
                 </a>
               </span>
 
@@ -220,27 +214,31 @@
       
 
       
-        <span itemprop="articleBody"><p>意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。</p>
-<p>进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。</p>
-<p>这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。</p>
+        <span itemprop="articleBody"><h3 id="ex44_Inheritance_Versus_Composition">ex44 Inheritance Versus Composition</h3><p>super()用在多继承里，避免了一些权限的问题，一般super()和<strong>init</strong>合用。看了一半PEP8。</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/16/sleepless/" rel="prev">sleepless</a>
+              <a href="/2015/09/25/learn python the hard way-4/" rel="prev">learn python the hard way-4</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/04/be back/" rel="next">be back</a>
+              <a href="/2015/09/12/learn python the hard way-2/" rel="next">learn python the hard way-2</a>
             
           </div>
         </div>
@@ -344,7 +342,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex44_Inheritance_Versus_Composition"><span class="nav-number">1.</span> <span class="nav-text">ex44 Inheritance Versus Composition</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -398,9 +396,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/08/06/unexpected trip/';
-      var disqus_title = 'unexpected trip';
-      var disqus_url = 'sansang.github.io/2015/08/06/unexpected trip/';
+      var disqus_identifier = '2015/09/15/learn python the hard way-3/';
+      var disqus_title = 'learn python the hard way-3';
+      var disqus_url = 'sansang.github.io/2015/09/15/learn python the hard way-3/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
