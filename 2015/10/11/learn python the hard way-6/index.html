@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -37,22 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
+<meta name="description" content="ex51 Getting Input From A Browser之前好几天就做了这个练习，当时没来得及写记录。理解错了作者的要求，把greeting页面拿到了最开始，然后back跳转到输入框，提交后又回到greeting页面＝ ＝
+ex52 The Start Of Your Web Game那个bug是在最后的成功页面里边也包含了输入框，所有做了相应修改。作者布置的任务，还没做。作者后边说Pe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unexpected trip">
-<meta property="og:url" content="sansang.github.io/2015/08/06/unexpected trip/index.html">
+<meta property="og:title" content="learn python the hard way-6">
+<meta property="og:url" content="sansang.github.io/2015/10/11/learn python the hard way-6/index.html">
 <meta property="og:site_name" content="step by step">
-<meta property="og:description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
-<meta property="og:updated_time" content="2015-08-06T15:27:39.000Z">
+<meta property="og:description" content="ex51 Getting Input From A Browser之前好几天就做了这个练习，当时没来得及写记录。理解错了作者的要求，把greeting页面拿到了最开始，然后back跳转到输入框，提交后又回到greeting页面＝ ＝
+ex52 The Start Of Your Web Game那个bug是在最后的成功页面里边也包含了输入框，所有做了相应修改。作者布置的任务，还没做。作者后边说Pe">
+<meta property="og:updated_time" content="2015-10-11T01:57:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unexpected trip">
-<meta name="twitter:description" content="意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。
-进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。
-这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。">
+<meta name="twitter:title" content="learn python the hard way-6">
+<meta name="twitter:description" content="ex51 Getting Input From A Browser之前好几天就做了这个练习，当时没来得及写记录。理解错了作者的要求，把greeting页面拿到了最开始，然后back跳转到输入框，提交后又回到greeting页面＝ ＝
+ex52 The Start Of Your Web Game那个bug是在最后的成功页面里边也包含了输入框，所有做了相应修改。作者布置的任务，还没做。作者后边说Pe">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +59,7 @@
   };
 </script>
 
-  <title> unexpected trip | step by step </title>
+  <title> learn python the hard way-6 | step by step </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -177,7 +174,7 @@
           
           
             
-              unexpected trip
+              learn python the hard way-6
             
           
         </h1>
@@ -186,8 +183,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-06T23:27:39+08:00" content="2015-08-06">
-            2015-08-06
+          <time itemprop="dateCreated" datetime="2015-10-11T09:57:13+08:00" content="2015-10-11">
+            2015-10-11
           </time>
         </span>
 
@@ -196,8 +193,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/杂记/" itemprop="url" rel="index">
-                  <span itemprop="name">杂记</span>
+                <a href="/categories/修炼/" itemprop="url" rel="index">
+                  <span itemprop="name">修炼</span>
                 </a>
               </span>
 
@@ -220,27 +217,33 @@
       
 
       
-        <span itemprop="articleBody"><p>意料之外的路程：一路上经过了伽师的瓜、巴楚的烤鱼、阿克苏的苹果、库尔勒的梨、若羌的枣，都没吃到＝ ＝以及大块的棉花地、成排的白桦树、干枯的胡杨，接下来是经德令哈到西宁。</p>
-<p>进入新疆后就一个接一个的意外，当初打定算盘之后就不用再走西北了。可是呢，真的很有必要8月底再来一次，吃完葡萄等着梨和苹果。</p>
-<p>这几天看看开源的项目，等到了成都，得把todo list的App和酒店预订系统complete了。</p>
+        <span itemprop="articleBody"><h3 id="ex51_Getting_Input_From_A_Browser">ex51 Getting Input From A Browser</h3><p>之前好几天就做了这个练习，当时没来得及写记录。理解错了作者的要求，把greeting页面拿到了最开始，然后back跳转到输入框，提交后又回到greeting页面＝ ＝</p>
+<h3 id="ex52_The_Start_Of_Your_Web_Game">ex52 The Start Of Your Web Game</h3><p>那个bug是在最后的成功页面里边也包含了输入框，所有做了相应修改。作者布置的任务，还没做。作者后边说<br><blockquote class="blockquote-center"><p>People who can code in the world of technology companies are a dime a dozen and get no respect. People who can code in biology, medicine, government, sociology, physics, history, and mathematics are respected and can do amazing things to advance those disciplines.</p>
+</blockquote><br>学了python以后，像是打开了新的认知的大门，确实感觉到了语言的共通性。至于把语言这个工具拿来做点什么成品，前几天都有些无从下手。</p>
+<p>backend的话，和数据库打交道容易上手；frontend的话，对样式抓狂；爬虫的话，爬了图片发现有ImageScraper；练习了一些thread，没有节约到时间，原来很多网站都有反爬虫机制……</p>
+<p>总之先用webpy完整地做个网站，从分析、设计界面、数据库、coding、部署到维护。</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/16/sleepless/" rel="prev">sleepless</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/04/be back/" rel="next">be back</a>
+              <a href="/2015/10/01/learn python the hard way-5/" rel="next">learn python the hard way-5</a>
             
           </div>
         </div>
@@ -344,7 +347,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex51_Getting_Input_From_A_Browser"><span class="nav-number">1.</span> <span class="nav-text">ex51 Getting Input From A Browser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex52_The_Start_Of_Your_Web_Game"><span class="nav-number">2.</span> <span class="nav-text">ex52 The Start Of Your Web Game</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -398,9 +401,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/08/06/unexpected trip/';
-      var disqus_title = 'unexpected trip';
-      var disqus_url = 'sansang.github.io/2015/08/06/unexpected trip/';
+      var disqus_identifier = '2015/10/11/learn python the hard way-6/';
+      var disqus_title = 'learn python the hard way-6';
+      var disqus_url = 'sansang.github.io/2015/10/11/learn python the hard way-6/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
