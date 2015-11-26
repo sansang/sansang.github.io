@@ -1,0 +1,521 @@
+
+<html>
+<head>
+<title>Animal crush by Sansang</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<style>
+body{
+  /*margin-top: 50px;*/
+  font-size: 14px;
+  font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
+  background-color: #E5E9ED;
+}
+.main{
+  height: 100%;
+  width: 100%;
+  /*background-image: url('images/bg.jpg');*/
+}
+.container{
+  text-align:center;
+  
+}
+table{
+    border-collapse: collapse;
+    width: 500px;
+    height: 500px;
+    /*margin-left: 30%;*/
+    opacity: 1;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1;
+}
+td{
+    border: 1px solid #E5E9ED;
+    padding 0 0.5em;
+}
+.logo {
+    height: 100px;
+    width: 150px;
+    float: right;
+    margin-right:20px;
+}
+@media (max-width: 715px) {
+    table{
+        margin-left: 8%;
+    }
+    .title{
+        width: 200px;
+        height: 100px;
+        background: #E5E9ED;
+        display: -webkit-box;
+    }
+    .title .setting{
+        display: inline;
+        margin-left: 50px;
+    }
+}
+@media (min-width: 716px) {
+table{
+    margin-left: 30%;
+    margin-top: 60px;
+}
+.title{
+    width: 200px;
+    height: 500px;
+    background: #E5E9ED;
+    float: left;
+}
+.title .setting{
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+}
+h3{
+    margin: 20px 30px 20px 20px;
+    color: rgba(0,0,0,.5);
+}
+</style>
+
+
+</head>
+<body>
+  <div class="main">
+    <div class="title">
+          <div class="setting" id="target">
+              <h3>Target:</h3>
+          </div>
+          <div class="setting" id="moves">
+              <h3>Moves:</h3>
+          </div>
+          <div class="setting" id="score">
+              <h3>Score:</h3>
+          </div>
+    </div>
+    <div class="container" id="divTable">
+    </div>
+    <a href="https://sansang.github.io" target="_blank">
+    <div class="logo">
+       <img src="images/logo.png">
+    </div>
+    </a>
+  </div>
+ 
+
+<script language="JavaScript">
+// grid
+numColumn = 9;
+numRow = 9;
+
+// type
+numType = 6;
+animals = ["bear.png", "cat.png", "dolphin.png", "hen.png", "koala.png", "panda.png"];
+images = "images/theme1/";
+
+// level up & count score/moves
+// implement later
+//////////////////////////////
+// level
+var level1 = [[0,1,1,0,0,0,1,1,0],
+              [1,1,1,1,1,1,1,1,1],
+              [1,1,1,1,1,1,1,1,1],
+              [1,1,1,1,1,1,1,1,1],
+              [0,0,1,1,1,1,1,0,0],
+              [1,1,1,1,1,1,1,1,1],
+              [1,1,1,1,1,1,1,1,1],
+              [1,1,1,1,1,1,1,1,1],
+              [0,1,1,0,0,0,1,1,0]];
+
+// target
+
+// moves
+
+// score
+
+
+// draw grid
+function drawGrid() {
+    // Create table.
+    var table = document.createElement('table');
+    table.id = "tb";
+    for(i = 0; i < numRow; i++){
+       var row = table.insertRow(i);
+       for(j = 0; j < numColumn; j++){
+           //console.log(check(level1, i, j));
+               var col = row.insertCell(j);
+               col.innerHTML = ' ';
+       }
+    }
+    
+    // Append Table into div.
+    var div = document.getElementById('divTable');
+    div.appendChild(table);
+}
+drawGrid();
+
+var table = document.getElementById("tb");
+var rows = table.getElementsByTagName("tr");
+var cells = table.getElementsByTagName("td");
+var animal = [];
+
+// loading level
+function check(level){
+    for(var i = 0; i < numRow; i++){
+        for(var j = 0; j < numColumn; j++){
+            if(level[i][j] == 0){
+                //console.log(rows[i].cells[j]);
+                rows[i].cells[j].style.backgroundColor = "#E5E9ED";
+                rows[i].cells[j].innerText = 1;
+                rows[i].cells[j].style.color = "#E5E9ED";
+            }
+        }
+    }
+}
+check(level1);
+
+// add animals to table
+function drawAnimals(){
+    for(var i = 0; i < numRow; i++){
+        if (!animal[i]) animal[i] = [];
+        for(var j = 0; j < numColumn; j++){
+            // compare the animal type left and above then create less chain in game
+            // 1. get random animal type 2. compare 3. success append to cell or failed do step 2 again
+            if(rows[i].cells[j].innerText != 1){
+                do {
+                    animal[i][j] = randomNum(0, numType - 1);
+                }while((j >= 2 && animal[i][j-1] == animal[i][j] && animal[i][j-2] == animal[i][j])||(i >= 2 && animal[i-1][j] == animal[i][j] && animal[i-2][j] == animal[i][j]));
+                //console.log(animal[i][j], i, j);
+                var img = document.createElement('img');
+                var arr = new Array(images, animals[animal[i][j]]);
+                img.src = arr.join("");
+                rows[i].cells[j].appendChild(img);
+                rows[i].cells[j].style.color = 'rgb(115,117,119)';
+            }else{
+                // 9 means nil cell
+                animal[i][j] = 9;
+            }
+        }
+    }
+}
+
+function randomNum(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+drawAnimals();
+
+// the hint function
+// implement later
+/////////////////////////
+function isChain(x, y){
+    var animalType = animal[x][y];
+    var vertLen = 1;
+    for(var i = x - 1; i >= 0 && (rows[i].cells[y].innerHTML != 1) && animal[i][y] == animalType; i--, vertLen ++);
+    for(var i = x + 1; i < numRow && (rows[i].cells[y].innerHTML != 1) && animal[i][y] == animalType; i++, vertLen++);
+    if(vertLen >= 3){
+        return true;
+    }
+    var horzLen = 1;
+    for(var j = y - 1; j >= 0 && (rows[x].cells[j].innerHTML != 1) && animal[x][j] == animalType; j--, horzLen++);
+    for(var j = y + 1; j < numColumn && (rows[x].cells[j].innerHTML != 1) && animal[x][j] == animalType; j++, horzLen++);
+    return (horzLen >= 3);
+}
+
+//same latter try it
+var possibleSet = new Set();
+function possibles(){
+    for(var i = 0; i < numRow; i++){
+        for(var j = 0; j < numColumn; j++){
+            var crtAnimal = animal[i][j];
+            if(crtAnimal != 9){
+                if(i < numRow - 1){
+                    var otherRow = animal[i+1][j];
+                    if(otherRow != 9){
+                        animal[i][j] = otherRow;
+                        animal[i+1][j] = crtAnimal;
+                        var arrRow = new Array();
+                        if(isChain(i, j)||isChain(i+1, j)){
+                            arrRow = [crtAnimal, i, j, otherRow, i+1, j];
+                            //console.log(arrRow);
+                            possibleSet.add(arrRow);
+                        }
+                        animal[i][j] = crtAnimal;
+                        animal[i+1][j] = otherRow;
+                    }
+                }
+                if(j < numColumn - 1){
+                    var otherCol = animal[i][j+1];
+                    if(otherCol != 9){
+                        animal[i][j] = otherCol;
+                        animal[i][j+1] = crtAnimal;
+                        var arrCol = new Array();
+                        if(isChain(i, j)||isChain(i, j+1)){
+                            arrCol = [crtAnimal, i, j, otherCol, i, j+1];
+                            //console.log(arrCol);
+                            possibleSet.add(arrCol);
+                        }
+                        animal[i][j] = crtAnimal;
+                        animal[i][j+1] = otherCol;
+                    }
+                    
+                }
+            }
+        }
+    }
+    return possibleSet;
+}
+
+// some delay
+////////////////////
+function delay(n){
+    var start=new Date().getTime();
+    while(true)
+        if(new Date().getTime() - start > n)
+            break;
+}
+
+function verticalMatch(){
+    var matchesVert = new Set();
+    for(var j = 0; j < numColumn; j++){
+        for(var i = 0; i < numRow - 2;){
+            if(rows[i].cells[j].innerText != 1){
+                matchTypeVert = animal[i][j];
+                if(matchTypeVert != 8 && animal[i + 1][j] == matchTypeVert && animal[i + 2][j] == matchTypeVert){
+                    var chainVert = new Map();
+                    chainVert.chainType = matchTypeVert;
+                    var arrVert = new Array();
+                    do{
+                        arrVert.push([i,j]);
+                        chainVert.location = arrVert;
+                        i += 1;
+                    }while(i < numRow && animal[i][j] == matchTypeVert);
+                    //console.log(chain);
+                    matchesVert.add(chainVert);
+                }
+            }
+            i += 1;
+        }
+    }
+    return matchesVert;
+}
+
+function horizontalMatch(){
+    var matchesHori = new Set();
+    for(var i = 0; i < numRow; i++){
+        for(var j = 0; j < numColumn - 2;){
+            if(rows[i].cells[j].innerText != 1){
+                matchTypeHori = animal[i][j];
+                if(matchTypeHori != 8 && animal[i][j+1] == matchTypeHori && animal[i][j+2] == matchTypeHori){
+                    var chainHori = new Map();
+                    chainHori.chainType = matchTypeHori;
+                    var arrHori = new Array();
+                    do{
+                        arrHori.push([i,j]);
+                        chainHori.location = arrHori;
+                        j += 1;
+                    }while(j < numColumn && animal[i][j] == matchTypeHori);
+                    //console.log(chain);
+                    matchesHori.add(chainHori);
+                }
+            }
+            j += 1;
+        }
+    }
+    return matchesHori;
+}
+
+function afterMatch(){
+    
+    rowMatch = verticalMatch();
+    colMatch = horizontalMatch();
+
+    var locationSet = new Set();
+    rowMatch.forEach(function(value) {
+                     for(i in value.location){
+                     locationSet.add(value.location[i]);
+                     }
+                     });
+                     
+    colMatch.forEach(function(value){
+                    for(i in value.location){
+                    locationSet.add(value.location[i]);
+                    }
+                    });
+    // replace matches chain to 8
+    // cells.innerHTML = 8
+    // animal[][] = 8
+    locationSet.forEach(function(value){
+                    rows[value[0]].cells[value[1]].innerHTML = 8;
+                    animal[value[0]][value[1]] = 8;
+                    //console.log(value);
+                    });
+    return locationSet.size;
+}
+
+// detect hole
+function isHole(){
+    for (var x = numRow - 1; x >= 0; x--) {
+        for (var y = numColumn - 1; y >= 0; y--) {
+            // 8 means a hole, need to fill up from above
+            if ((rows[x].cells[y].innerText != 1) && animal[x][y] == 8) {
+                return ([x,y]);
+            }
+        }
+    }
+}
+var tempAnimal = new Array();
+var tempImg = new Array();
+function fallDown(x, y){
+    if(x >= 0){
+        var up = x - 1;
+        if(up >= 0 && animal[x][y] != 9){
+            for(var look = x - 1; look >= 0; look--){
+                if(animal[look][y] != 8 && animal[look][y] != 9){
+                    for(var i = 0; i < numRow; i++){
+                        if (!tempAnimal[i]) tempAnimal[i] = [];
+                        if (!tempImg[i]) tempImg[i] = [];
+                        for(var j = 0; j < numColumn; j++){
+                            tempAnimal[i][j] = animal[i][j];
+                            tempImg[i][j] = rows[i].cells[j].innerHTML;
+                        }
+                    }
+                    animal[x][y] = animal[look][y];
+                    animal[look][y] = tempAnimal[x][y];
+                    rows[x].cells[y].innerHTML = rows[look].cells[y].innerHTML;
+                    rows[look].cells[y].innerHTML = tempImg[x][y];
+
+                }
+            }
+        }
+        return fallDown(up, y);
+    }
+}
+
+// check is 8(empty no image)
+function isEmpty(){
+    for (var y = numColumn - 1; y >= 0; y--) {
+        for (var x = numRow - 1; x >= 0; x--) {
+            if((animal[x][y] != 9) && (animal[x][y] == 8)){
+                return ([x,y]);
+            }
+        }
+    }
+}
+
+function topUpAnimal(x, y){
+    var typeofAnimal;
+    var newType;
+    do{
+        newType = randomNum(0, numType - 1);
+    }while(newType == typeofAnimal);
+    typeofAnimal = newType;
+    animal[x][y] = typeofAnimal;
+    rows[x].cells[y].innerHTML = "";
+    var img = document.createElement('img');
+    var arr = new Array(images, animals[typeofAnimal]);
+    img.src = arr.join("");
+    rows[x].cells[y].appendChild(img);
+}
+
+var allImg = document.getElementsByTagName("img");
+for(var a = 0; a < allImg.length; a++){
+    allImg[a].onclick = function(){
+        var height = this.y;
+        console.log(height,"img");
+        
+    }
+}
+
+// this logic is not clear on click event
+// topup animal then check matches
+//////////////////////////////////////////
+window.onload = function(){
+    var numClick = 0;
+    var cellIndex1, rowIndex1, cellIndex2, rowIndex2, img1, img2, image;
+    var all = document.getElementsByTagName("td");
+    
+    for (var i=0;i<all.length;i++) {
+        all[i].onclick = function(){
+            //console.log(this.innerHTML);
+            // check the click validation
+            if(this.innerHTML != 1){
+                //var possibleAnimal = possibles();
+                // change the bgcolor after clicking
+                if(numClick == 0){
+                    // get index
+                    cellIndex1 = this.cellIndex;
+                    rowIndex1 = this.parentNode.rowIndex;
+                    img1 = this.innerHTML;
+                    crtAnimal = animal[rowIndex1][cellIndex1];
+                    rows[rowIndex1].cells[cellIndex1].style.backgroundColor = '#E5E9ED';
+                    //console.log("click1", numClick);
+                    numClick = numClick + 1;
+                }else if(numClick == 1){
+                    // get index
+                    cellIndex2 = this.cellIndex;
+                    rowIndex2 = this.parentNode.rowIndex;
+                    img2 = this.innerHTML;
+                    otherAnimal = animal[rowIndex2][cellIndex2];
+                    rows[rowIndex2].cells[cellIndex2].style.backgroundColor = '#E5E9ED';
+                    //console.log("click2", numClick);
+                    //check the two click td are next to each other
+                    lr = Math.abs(cellIndex1-cellIndex2) == 1 && rowIndex1 == rowIndex2;
+                    ab = Math.abs(rowIndex1-rowIndex2) == 1 && cellIndex1 == cellIndex2;
+                    if (lr || ab){
+                        //console.log("we are next to each other.");
+                        /* check validation before exchange img
+                         *
+                         */
+                        animal[rowIndex1][cellIndex1] = otherAnimal;
+                        animal[rowIndex2][cellIndex2] = crtAnimal;
+                        //console.log(animal);
+                        rows[rowIndex1].cells[cellIndex1].innerHTML = img2;
+                        rows[rowIndex2].cells[cellIndex2].innerHTML = img1;
+                        
+                        rows[rowIndex1].cells[cellIndex1].style.backgroundColor = 'rgb(115,117,119)';
+                        rows[rowIndex2].cells[cellIndex2].style.backgroundColor = 'rgb(115,117,119)';
+                        var animalA = [otherAnimal, rowIndex2, cellIndex2, crtAnimal, rowIndex1, cellIndex1];
+                        var animalB = [crtAnimal, rowIndex1, cellIndex1, otherAnimal, rowIndex2, cellIndex2];
+                        //console.log(animalA, animalB, "moved index");
+                        console.log(verticalMatch().size > 0);
+                        console.log(horizontalMatch().size > 0);
+                        
+                        if((verticalMatch().size > 0) ||(horizontalMatch().size > 0)){
+                            setTimeout(function(){
+                                       //do{
+                                            var matching= afterMatch();
+                            
+                                            for(var k=0;k<matching;k++){
+                                                var locationHole = isHole();
+                                                fallDown(locationHole[0],locationHole[1]);
+                                            }
+                                            for(var m=0;m<matching;m++){
+                                                var locationEmpty = isEmpty();
+                                                topUpAnimal(locationEmpty[0],locationEmpty[1]);
+                                            }
+                                       //}while(verticalMatch().size > 0 || horizontalMatch().size > 0);
+                            },500);
+                        }else{
+                            animal[rowIndex1][cellIndex1] = crtAnimal;
+                            animal[rowIndex2][cellIndex2] = otherAnimal;
+                            rows[rowIndex1].cells[cellIndex1].innerHTML = img1;
+                            rows[rowIndex2].cells[cellIndex2].innerHTML = img2;
+                        }
+                        numClick = 0;
+                    }else{
+                        rows[rowIndex1].cells[cellIndex1].style.backgroundColor = 'rgb(115,117,119)';
+                        console.log(rowIndex1, cellIndex1, rowIndex2, cellIndex2, "row&col");
+                        console.log("we are not neighbour!");
+                        cellIndex1 = cellIndex2;
+                        rowIndex1 = rowIndex2;
+                        cellIndex2 = 0;
+                        rowIndex2 = 0;
+                    }
+                }
+            }
+        }
+    }
+};
+
+</script>
+</body>
+</html>
