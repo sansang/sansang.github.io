@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="python & mysql," />
 
 
 
@@ -37,25 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="ex30 Else And Ifif-elif-else
-ex31 Making Decisionsif-else嵌套if-else
-ex32 Loops And Lists习惯了java的那种for循环形式，在python里测试了下，貌似还得用range()。list.append()可以增加元素。
-ex33 While Loops之前看到有的代码，while True，还以为python和之前">
+<meta name="description" content="AttributeError: ‘long’ object has no attribute ‘fetchall’cursor可以使用fetchall，但是我在使用的时候，将cursor.execute的结果赋值给了变量，变量是没有fetchall的。
+关于插入虽然一条一条的地插入数据库后再commit，速度也不慢。但还是尝试了一次性插入多条数据，没成功。查看了Stackoverflow的一些解决">
 <meta property="og:type" content="article">
-<meta property="og:title" content="learn python the hard way-2">
-<meta property="og:url" content="sansang.github.io/2015/09/12/learn python the hard way-2/index.html">
+<meta property="og:title" content="mysql in python">
+<meta property="og:url" content="sansang.github.io/2015/11/30/mysql in python/index.html">
 <meta property="og:site_name" content="step by step">
-<meta property="og:description" content="ex30 Else And Ifif-elif-else
-ex31 Making Decisionsif-else嵌套if-else
-ex32 Loops And Lists习惯了java的那种for循环形式，在python里测试了下，貌似还得用range()。list.append()可以增加元素。
-ex33 While Loops之前看到有的代码，while True，还以为python和之前">
-<meta property="og:updated_time" content="2015-09-12T14:02:14.000Z">
+<meta property="og:description" content="AttributeError: ‘long’ object has no attribute ‘fetchall’cursor可以使用fetchall，但是我在使用的时候，将cursor.execute的结果赋值给了变量，变量是没有fetchall的。
+关于插入虽然一条一条的地插入数据库后再commit，速度也不慢。但还是尝试了一次性插入多条数据，没成功。查看了Stackoverflow的一些解决">
+<meta property="og:updated_time" content="2015-11-30T13:32:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="learn python the hard way-2">
-<meta name="twitter:description" content="ex30 Else And Ifif-elif-else
-ex31 Making Decisionsif-else嵌套if-else
-ex32 Loops And Lists习惯了java的那种for循环形式，在python里测试了下，貌似还得用range()。list.append()可以增加元素。
-ex33 While Loops之前看到有的代码，while True，还以为python和之前">
+<meta name="twitter:title" content="mysql in python">
+<meta name="twitter:description" content="AttributeError: ‘long’ object has no attribute ‘fetchall’cursor可以使用fetchall，但是我在使用的时候，将cursor.execute的结果赋值给了变量，变量是没有fetchall的。
+关于插入虽然一条一条的地插入数据库后再commit，速度也不慢。但还是尝试了一次性插入多条数据，没成功。查看了Stackoverflow的一些解决">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +59,7 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
   };
 </script>
 
-  <title> learn python the hard way-2 | step by step </title>
+  <title> mysql in python | step by step </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +174,7 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
           
           
             
-              learn python the hard way-2
+              mysql in python
             
           
         </h1>
@@ -189,8 +183,8 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-12T22:02:14+08:00" content="2015-09-12">
-            2015-09-12
+          <time itemprop="dateCreated" datetime="2015-11-30T21:32:38+08:00" content="2015-11-30">
+            2015-11-30
           </time>
         </span>
 
@@ -223,20 +217,9 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
       
 
       
-        <span itemprop="articleBody"><h3 id="ex30_Else_And_If">ex30 Else And If</h3><p>if-elif-else</p>
-<h3 id="ex31_Making_Decisions">ex31 Making Decisions</h3><p>if-else嵌套if-else</p>
-<h3 id="ex32_Loops_And_Lists">ex32 Loops And Lists</h3><p>习惯了java的那种for循环形式，在python里测试了下，貌似还得用range()。list.append()可以增加元素。</p>
-<h3 id="ex33_While_Loops">ex33 While Loops</h3><p>之前看到有的代码，while True，还以为python和之前学的语言不一样，作者说，确保while语句在某个点可以False。</p>
-<h3 id="ex34_Accessing_Elements_Of_Lists">ex34 Accessing Elements Of Lists</h3><p>根据下标获取list的元素。</p>
-<h3 id="ex35_Branches_And_Function">ex35 Branches And Function</h3><p>exit(0)跳出循环</p>
-<h3 id="ex36_Designing_And_Debugging">ex36 Designing And Debugging</h3><p>每个if语句必须有else，如果这个else理论上是没用的，在else里使用die方法打印错误信息；不要嵌套if语句超过2个深度；写if－elif－else时要像写一组句子一样，前后空一行；布尔运算要简单，如果它们复杂了，在前边用参数传值。<br>但是，别做规矩的奴隶，规矩有时也会很蠢。</p>
-<h3 id="ex37_Symbol_Review">ex37 Symbol Review</h3><p>复习，看代码，把之前看到的，使用Beautiful Soup解析的，爬虫拿来跑一跑。</p>
-<h3 id="ex38_Doing_Things_To_Lists">ex38 Doing Things To Lists</h3><p>class不会用，昨天爬虫发现split()[]可截取指定的字符串。join(a)貌似可以理解为join前边的内容加入a里，a［x：y］可以指定x与y之间的位置插入，类似range［］。</p>
-<h3 id="ex39_Dictionaries,_Oh_Lovely_Dictionaries">ex39 Dictionaries, Oh Lovely Dictionaries</h3><p>alpha{a: a1, b: b1}，通过alpha[‘a’]可得a1，alpha.get(‘c’)安全获取不一定存在的元素，get()内可添加默认值。hash(key)根据键值生产数字再转换为下标。xrange()不会直接生成list，性能好些。</p>
-<h3 id="ex40_Modules,_Classes,_And_Objects">ex40 Modules, Classes, And Objects</h3><p>报错TypeError: object() takes no parameters，一直没觉得有错，搜索后发现有人写class时，也报这个错误。原因在于没有写<strong>init</strong>()方法，再仔细看了看，发现前后是2个下划线 ＝ ＝#</p>
-<h3 id="ex41_Learning_To_Speak_Object_Oriented">ex41 Learning To Speak Object Oriented</h3><p>word.strip()去除字符串的首尾空格，capitalize()返回字符串大写字母的副本，random.sample(list, n)在list中随机获取长度为n的片段，random.randint(x, y) x~y之间的随机整数，sentence[:]拷贝list。</p>
-<h3 id="ex42_Is-A,_Has-A,_Objects,_And_Classes">ex42 Is-A, Has-A, Objects, And Classes</h3><p>super(Employee, self).<strong>init</strong>(name) bound super object; requires isinstance(self, Employee)。pydoc上看的，其实有点迷糊。</p>
-<h3 id="ex43_Basic_Object-Oriented_Analysis_And_Design">ex43 Basic Object-Oriented Analysis And Design</h3><p>好多字，打字练习……场景切换比我之前写那个游戏好，作者的写法代码维护起来方便。</p>
+        <span itemprop="articleBody"><h3 id="AttributeError:_‘long’_object_has_no_attribute_‘fetchall’">AttributeError: ‘long’ object has no attribute ‘fetchall’</h3><p>cursor可以使用fetchall，但是我在使用的时候，将cursor.execute的结果赋值给了变量，变量是没有fetchall的。</p>
+<h3 id="关于插入">关于插入</h3><p>虽然一条一条的地插入数据库后再commit，速度也不慢。但还是尝试了一次性插入多条数据，没成功。查看了Stackoverflow的一些解决方案，没能成功插入，之后再试试。</p>
+<h3 id="关于like">关于like</h3><p>貌似看见有说sql语句尽量不要使用like，大概是效率问题。应该是我还没到那个数量级吧😄</p>
 </span>
       
     </div>
@@ -245,7 +228,7 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/python-mysql/" rel="tag">#python & mysql</a>
           
         </div>
       
@@ -254,13 +237,11 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/15/learn python the hard way-3/" rel="prev">learn python the hard way-3</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/01/learn python the hard way-1/" rel="next">learn python the hard way</a>
+              <a href="/2015/10/31/threading in python/" rel="next">threading in python</a>
             
           </div>
         </div>
@@ -370,7 +351,7 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex30_Else_And_If"><span class="nav-number">1.</span> <span class="nav-text">ex30 Else And If</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex31_Making_Decisions"><span class="nav-number">2.</span> <span class="nav-text">ex31 Making Decisions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex32_Loops_And_Lists"><span class="nav-number">3.</span> <span class="nav-text">ex32 Loops And Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex33_While_Loops"><span class="nav-number">4.</span> <span class="nav-text">ex33 While Loops</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex34_Accessing_Elements_Of_Lists"><span class="nav-number">5.</span> <span class="nav-text">ex34 Accessing Elements Of Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex35_Branches_And_Function"><span class="nav-number">6.</span> <span class="nav-text">ex35 Branches And Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex36_Designing_And_Debugging"><span class="nav-number">7.</span> <span class="nav-text">ex36 Designing And Debugging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex37_Symbol_Review"><span class="nav-number">8.</span> <span class="nav-text">ex37 Symbol Review</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex38_Doing_Things_To_Lists"><span class="nav-number">9.</span> <span class="nav-text">ex38 Doing Things To Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex39_Dictionaries,_Oh_Lovely_Dictionaries"><span class="nav-number">10.</span> <span class="nav-text">ex39 Dictionaries, Oh Lovely Dictionaries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex40_Modules,_Classes,_And_Objects"><span class="nav-number">11.</span> <span class="nav-text">ex40 Modules, Classes, And Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex41_Learning_To_Speak_Object_Oriented"><span class="nav-number">12.</span> <span class="nav-text">ex41 Learning To Speak Object Oriented</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex42_Is-A,_Has-A,_Objects,_And_Classes"><span class="nav-number">13.</span> <span class="nav-text">ex42 Is-A, Has-A, Objects, And Classes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex43_Basic_Object-Oriented_Analysis_And_Design"><span class="nav-number">14.</span> <span class="nav-text">ex43 Basic Object-Oriented Analysis And Design</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AttributeError:_‘long’_object_has_no_attribute_‘fetchall’"><span class="nav-number">1.</span> <span class="nav-text">AttributeError: ‘long’ object has no attribute ‘fetchall’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于插入"><span class="nav-number">2.</span> <span class="nav-text">关于插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于like"><span class="nav-number">3.</span> <span class="nav-text">关于like</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -424,9 +405,9 @@ ex33 While Loops之前看到有的代码，while True，还以为python和之前
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/09/12/learn python the hard way-2/';
-      var disqus_title = 'learn python the hard way-2';
-      var disqus_url = 'sansang.github.io/2015/09/12/learn python the hard way-2/';
+      var disqus_identifier = '2015/11/30/mysql in python/';
+      var disqus_title = 'mysql in python';
+      var disqus_url = 'sansang.github.io/2015/11/30/mysql in python/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
