@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html ng-app="deerResume" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no,target-densitydpi=medium-dpi">
+  <base href="/">
+  <!--[if lt IE 10]>
+    <script type="text/javascript">
+      location.href = 'http://www.jobdeer.com/ie_error.html';
+    </script>
+  <![endif]-->
+  <title ng-bind="title" class="ng-binding">cv by 萌鹿简历</title>
+  <link href="image/browser.png" rel="shortcut icon">
+  <link rel="stylesheet" href="http://static.deercv.com/css/normalize.css">
+  <!-- <link rel="stylesheet" href="http://static.deercv.com/css/yue.css"> -->
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="http://static.deercv.com/css/style.css?v=1">
+  <link rel="stylesheet" href="http://static.deercv.com/bower/components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://static.deercv.com/bower/components/ng-notify/dist/ng-notify.min.css">
+  <link rel="stylesheet" href="http://static.deercv.com/ghostdown/styles/dropzone.css">
+  <link rel="stylesheet" href="http://static.deercv.com/ghostdown/styles/editor.css">
+  <script type="text/javascript" async="" defer="" src="//s.kuaijianli.com/piwik.js"></script><script src="http://static.deercv.com/bower/components/jquery/dist/jquery.min.js"></script><style type="text/css"></style>
+  <script src="http://static.deercv.com/bower/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="http://static.deercv.com/bower/components/angular/angular.min.js"></script>
+  <script src="http://static.deercv.com/bower/components/angular-route/angular-route.min.js"></script>
+  <script src="http://static.deercv.com/bower/components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="http://static.deercv.com/bower/components/showdown/compressed/showdown.js"></script>
+  <script src="http://static.deercv.com/bower/components/ng-notify/dist/ng-notify.min.js"></script>
+  <script src="http://static.deercv.com/bower_components/xss/dist/xss.js"></script>
+  <script src="http://static.deercv.com/js/wizMarkdown.min.js"></script>
+  <script src="http://static.deercv.com/js/jspdf.min.js"></script>
+  <script src="http://static.deercv.com/js/jspdf.plugin.addhtml.js"></script>
+  <script src="http://static.deercv.com/bower/components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="http://static.deercv.com/bower/components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="http://static.deercv.com/ghostdown/js/dropzone.js"></script>
+  <script src="http://static.deercv.com/ghostdown/js/ghostdown.js"></script>
+  <!-- // <script src="js/service.js?v=2"></script> -->
+  <script src="http://static.deercv.com/js/service.js?v=3"></script>
+  <!-- // <script src="js/app.js?v=2"></script> -->
+  <script src="http://static.deercv.com/js/app.js?v=3"></script>
+  <style>
+  .yue {
+      font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+      color: #444443;
+  }
+  
+  .windows .yue {
+      font-size: 16px;
+      font-family: "Georgia", "SimSun", sans-serif;
+  }
+  
+  .yue ::-moz-selection {
+      background-color: rgba(0,0,0,0.2);
+  }
+  
+  .yue ::selection {
+      background-color: rgba(0,0,0,0.2);
+  }
+  
+  .yue h1,
+  .yue h2,
+  .yue h3,
+  .yue h4,
+  .yue h5,
+  .yue h6 {
+      font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", "SimSun", sans-serif;
+      color: #222223;
+  }
+  
+  .yue h1 {
+      font-size: 1.8em;
+      margin: 0.67em 0;
+  }
+  
+  .yue > h1 {
+      margin-top: 0;
+      font-size: 2em;
+  }
+  
+  .yue h2 {
+      font-size: 1.5em;
+      margin: 0.83em 0;
+  }
+  
+  .yue h3 {
+      font-size: 1.17em;
+      margin: 1em 0;
+  }
+  
+  .yue h4,
+  .yue h5,
+  .yue h6 {
+      font-size: 1em;
+      margin: 1.6em 0 1em 0;
+  }
+  
+  .yue h6 {
+      font-weight: 500;
+  }
+  
+  .yue p {
+      margin-top: 0;
+      margin-bottom: 1.46em;
+  }
+  
+  .yue a {
+      color: #2a6496;;
+      word-wrap: break-word;
+      text-decoration-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .yue a:hover {
+      color: #428BCA;
+      text-decoration-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .yue strong,
+  .yue b {
+      font-weight: 700;
+      /*color: #222223;*/
+  }
+  
+  .yue em,
+  .yue i {
+      font-style: italic;
+      color: #222223;
+  }
+  
+  .yue img {
+      max-width: 100%;
+      height: auto;
+      margin: 0.2em 0;
+  }
+  
+  .yue a img {
+      /* Remove border on IE */
+      border: none;
+  }
+  
+  .yue figure {
+      position: relative;
+      clear: both;
+      outline: 0;
+      margin: 10px 0 30px;
+      padding: 0;
+      min-height: 100px;
+  }
+  
+  .yue figure img {
+      display: block;
+      max-width: 100%;
+      margin: auto auto 4px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  
+  .yue figure figcaption {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      left: 0;
+      margin-top: 10px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #666665;
+  }
+  
+  .yue figure figcaption a {
+      text-decoration: none;
+      color: #666665;
+  }
+  
+  .yue hr {
+      display: block;
+      width: 14%;
+      margin: 40px auto 34px;
+      border: 0 none;
+      border-top: 3px solid #dededc;
+  }
+  
+  .yue blockquote {
+      margin: 0 0 1.64em 0;
+      border-left: 3px solid #dadada;
+      padding-left: 12px;
+      color: #666664;
+  }
+  
+  .yue blockquote a {
+      color: #666664;
+  }
+  
+  .yue ul,
+  .yue ol {
+      margin: 0 0 24px 6px;
+      padding-left: 16px;
+  }
+  
+  .yue ul {
+      list-style-type: square;
+  }
+  
+  .yue ol {
+      list-style-type: decimal;
+  }
+  
+  .yue li {
+      margin-bottom: 0.2em;
+  }
+  
+  .yue li ul,
+  .yue li ol {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 14px;
+  }
+  
+  .yue li ul {
+      list-style-type: disc;
+  }
+  
+  .yue li ul ul {
+      list-style-type: circle;
+  }
+  
+  .yue li p {
+      margin: 0.4em 0 0.6em;
+  }
+  
+  .yue .unstyled {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+  }
+  
+  .yue code,
+  .yue tt {
+      color: #808080;
+      font-size: 0.96em;
+      background-color: #f9f9f7;
+      padding: 1px 2px;
+      border: 1px solid #dadada;
+      border-radius: 3px;
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+  
+  .yue pre {
+      margin: 1.64em 0;
+      padding: 7px;
+      border: none;
+      border-left: 3px solid #dadada;
+      padding-left: 10px;
+      overflow: auto;
+      line-height: 1.5;
+      font-size: 0.96em;
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+      color: #4c4c4c;
+      background-color: #f9f9f7;
+  }
+  
+  .yue pre code,
+  .yue pre tt {
+      color: #4c4c4c;
+      border: none;
+      background: none;
+      padding: 0;
+  }
+  
+  .yue table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin-bottom: 1.5em;
+      font-size: 0.96em;
+  }
+  
+  .yue th,
+  .yue td {
+      text-align: left;
+      padding: 4px 8px 4px 10px;
+      border: 1px solid #dadada;
+  }
+  
+  .yue td {
+      vertical-align: top;
+  }
+  
+  .yue tr:nth-child(even) {
+      background-color: #efefee;
+  }
+  
+  .yue iframe {
+      display: block;
+      max-width: 100%;
+      margin-bottom: 30px;
+  }
+  
+  .yue figure iframe {
+      margin: auto;
+  }
+  
+  .yue table pre {
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: none;
+  }
+  
+  @media (min-width: 1100px) {
+      .yue blockquote {
+          margin-left: -24px;
+          padding-left: 20px;
+          border-width: 4px;
+      }
+      
+      .yue blockquote blockquote {
+          margin-left: 0;
+      }
+      
+      .yue figure img {
+          margin: 0 0 4px;
+      }
+      
+      .yue figure figcaption:before {
+          width: 25%;
+          margin-left: 75%;
+          border-top: 1px solid #dededc;
+          display: block;
+          content: "";
+          margin-bottom: 10px;
+      }
+      
+      .yue figure figcaption {
+          position: absolute;
+          left: -172px;
+          width: 150px;
+          top: 0;
+          text-align: right;
+          margin-top: 0;
+      }
+  }
+
+</style>
+<script type="text/javascript" src="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content/frame.js"></script><link id="clearly_highlighting_css" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/highlight/css/style.css" rel="stylesheet" type="text/css"><link id="clearly_highlighting_css_images" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/highlight/css/images.css" rel="stylesheet" type="text/css"></head>
+<body>
+  <!-- uiView:  --><div ui-view="" id="resume_body" class="ng-scope">  <header>
+    <div>
+      <h1></h1>
+      <p></p>
+    </div> 
+  </header>  
+  <div class="content yue ng-scope ng-isolate-scope" id="cvcontent" ghost-down="resume.content" can-weixin-scan="resume.can_weixin_spread"><div class="resume_content ng-scope"><h1 id="gongwanni">Gong wanni</h1>
+
+<p></p><div class="password_border"><p></p>
+
+<ul>
+<li><p>Contact</p>
+
+<ul><li>Email：<strong>sansang072012@gmail.com</strong> </li>
+<li>Phone：<strong>＋86 15923009336</strong> </li>
+<li>Blog：<a href="sansang.github.io" target="_blank"><strong>sansang</strong></a></li></ul></li>
+<li><p>Target</p>
+
+<ul><li>(Java/Python) Software Engineer、Front End Engineer
+</li></ul></li></ul></div>
+
+
+<hr>
+
+<h2 id="summary">Summary</h2>
+
+<p>Background in Computer science and technology, love reading, sports and delicious food. Solving technical problems bring me pleasure and fulfillment. Have strong self-learning ability, teamwork spirit, adaptability to new surroundings.</p>
+
+<hr>
+
+<h2 id="skills">Skills</h2>
+
+<p>Skills below are prior experience, <code>background</code> decoration are familar with.</p>
+
+<ul>
+<li>Languages：<a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank"><code>Java</code></a>、<a href="https://www.python.org" target="_blank"><code>Python</code></a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><code>JavaScript</code></a>、<a href="https://en.wikipedia.org/wiki/HTML" target="_blank"><code>HTML</code></a>、<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a>、<a href="https://en.wikipedia.org/wiki/Unix_shell" target="_blank">Shell</a>、<a href="https://en.wikipedia.org/wiki/PL/SQL" target="_blank">PL/SQL</a></li>
+<li>Frameworks：<a href="https://webpy.org" target="_blank"><code>webpy</code></a>、<a href="https://getbootstrap.com" target="_blank"><code>Bootstrap</code></a>、<a href="https://spring.io" target="_blank">Spring</a></li>
+<li>Software &amp; tools：<a href="https://www.mysql.com" target="_blank"><code>MySQL</code></a>、<a href="https://en.wikipedia.org/wiki/IBM_DB2" target="_blank">DB2</a>、<a href="https://tomcat.apache.org" target="_blank">Tomcat</a>、<a href="https://github.com/tartley/python-regex-cheatsheet/blob/master/cheatsheet.rst" target="_blank"><code>regular expression</code></a>、<a href="https://www.vim.org" target="_blank"><code>Vim</code></a>、<a href="https://www.eclipse.org" target="_blank"><code>Eclipse</code></a>、<a href="https://maven.apache.org/" target="_blank">Maven</a>、<a href="https://jmeter.apache.org" target="_blank">Jmeter</a>、<a href="https://git-scm.com" target="_blank">Git</a>、<a href="http://subversion.apache.org" target="_blank">SVN</a></li>
+</ul>
+
+<hr>
+
+<h2 id="experience">Experience</h2>
+
+<h4 id="hisuntechhttpwwwhisuntechcomhisunphpmodcompanycatid4softwaredeveloper201407t201501"><a href="http://www.hisuntech.com/hisun.php?mod=company&amp;catid=4"><strong>Hisuntech</strong></a>, Software developer (<em>2014.07~2015.01</em>)</h4>
+
+<p>Shenzhen, Guangdong provence, China</p>
+
+<ul>
+<li><p><strong>Shareholding management system - Bank of China Macao Branch</strong> (Person in charge: Chen juan, Leader)</p>
+
+<p>This project is web-based, for Bank of China Macao Branch and Four Seasons Hotel to manage shares and share holders, about share split, share transfer, transaction statement printing. Using DB2 database, WebSphere server, Java, Spring framework, HTML, CSS, XML, jQuery technology, to implement multi-condition query of share information, share holders' information, transaction records, share splits, share transfer. CRUD operations are based on user access permissions.</p>
+
+<p>Three team members in this project. I participated in front end, back end coding, pressure testing with Jmeter and deployment. Mainly to complete statement exporting and printing, user permission management, bug fixing, pages' style adjustment. During this project, I'm familiar with shell command, putty operation, IE and Chrome debugging. As well as improve on communication skills, grasp of customers' requirement. This project has been release to production.</p></li>
+<li><p><strong>P2P II project - <a href="http://www.penging.com/">Penging</a></strong> (Person in charge: Zhou jinhui, Project Director)</p>
+
+<p>This is Penging's P2P 2nd phase project, web-based. Divided into two subsystem: front subsystem (for ordinary users) and management subsystem(for administrators). Management subsystem, uses Oracle database, NUZT(an open source of Java framework), MiniUI(Javascript framework) components in presentation layer, Maven, AJAX, JSON, jQuery, etc.</p>
+
+<p>Ten team members in this project.I participated in management subsystem to implement blacklist management module, including submission of blacklist customer, approval and disapproval process. Mainly to complete table fields design, user interface design, coding and testing. Since I was new in NUZT and MiniUI at that time, I combined project documentation with practice, accomplished development work. The project has been launched.</p></li>
+</ul>
+
+<hr>
+
+<h2 id="projects">Projects</h2>
+
+<ul>
+<li><p><strong>Hotel Price Check</strong> （<em>2015.09~now</em>）— Python</p>
+
+<p>Inspired by Skyscanner(a flight search for cheap flight), I start to achieve hotel search for comfortable hotel and fair price. Crawling 10k+ accommodation information within China, store in MySQL database, using Bootstrap for user interface. Users get accommodation information by hotel name or city. After typing check in and check out date, detail page will show the price from different online hotel booking website. Thus users can check price.</p>
+
+<p>ps: I'm working on the price search part with Scrapy right now. It will be complete later.</p></li>
+<li><p><strong><a href="https://sansang.github.io/crush.html">Animal Crush v1.0</a></strong> （<em>2015.10~2015.11</em>）— JavaScript</p>
+
+<p>A JavaScript game</p></li>
+<li><p><strong>Hotel And Spots Management System</strong> （<em>2015.01~2015.04</em>）— Java Web</p>
+
+<p>This projrct is a booking management system of hotel and spots. Users can search for hotel and spots, sign up or sign in to manage reservation, and publish their own hotels or spots' information. With MySQL database to store data, JavaBean, Servlet and JSP as logic control, EasyUI for user interface. </p>
+
+<p>ps: Graduation project</p></li>
+</ul>
+
+<hr>
+
+<h2 id="education">Education</h2>
+
+<p><strong>Chongqing Technology and Business University</strong>, Chongqing (2011.09~2015.06) </p>
+
+<p>Bachelor's degree, Computer Science and Technology</p>
+
+<ul>
+<li>2014 College scholarships</li>
+<li>2014 Qualification Certificate of Computer and Software Technology Proficiency - programmer</li>
+<li>2012 CET6</li>
+<li>2011 CET4</li>
+</ul>
+
+<hr>
+
+<h2 id="others">Others</h2>
+
+<ul>
+<li>Climbing Mount Hua overnight. From Hemu valley to Kanasi lake (Aletai area, Xinjiang provence, China) around 36 KM nearly 17 Hours</li>
+<li>Recently reading Spring Boot and Scrapy documention，trying to use IntelliJ IDEA</li>
+<li>Interests: running, hiking, cooking, drawing, planting</li>
+</ul></div></div>
+  <div class="content passbox ng-scope ng-hide" ng-show="loading">
+    <center>
+    <p>加载中...</p>
+  </center>
+  </div>  
+
+  <div>
+      <!--<a href="https://github.com/geekcompany/DeerResume"><img src="image/home.png" /></a>--><a><img></a><a><img></a>
+  </div> 
+
+<!--SCRIPTS-->
+<!--SCRIPTS END-->
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//s.kuaijianli.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 11]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>&lt;p&gt;&lt;img src="//s.kuaijianli.com/piwik.php?idsite=11" style="border:0;" alt="" /&gt;&lt;/p&gt;</noscript>
+<!-- End Piwik Code -->
+
+<div class="modal fade" id="jobdeer-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"></div></div></div><div id="evernoteClearlyNextContainer" style="margin: 0px; padding: 0px; border: none; position: absolute; width: 5px; height: 5px; top: -10px; left: -10px;"></div></body></html>
