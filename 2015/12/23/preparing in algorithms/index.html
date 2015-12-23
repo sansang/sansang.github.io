@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="algorithms," />
 
 
 
@@ -37,19 +37,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="ex45 You Make A Game之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。
-主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式">
+<meta name="description" content="刷题之前也有想过刷算法题，ACM什么的。因为算法课上的练习题，也是从各个竞赛选出来的。要么读不懂题意；要么读懂题意无从下手，然后就没有然后了＝ ＝
+前几天做了一道题，给定的数字型数组，求不同的起始和结束下标和。有种，“诶，这是算法题么？”，的轻松感。一开始用sum结合for循环，结果跑了7秒多😓，too young too simple啊。
+下午把题目描述用scrapy拿回本地了，打算每天练练手">
 <meta property="og:type" content="article">
-<meta property="og:title" content="learn python the hard way-4">
-<meta property="og:url" content="sansang.github.io/2015/09/25/learn python the hard way-4/index.html">
+<meta property="og:title" content="preparing in algorithms">
+<meta property="og:url" content="sansang.github.io/2015/12/23/preparing in algorithms/index.html">
 <meta property="og:site_name" content="step by step">
-<meta property="og:description" content="ex45 You Make A Game之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。
-主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式">
-<meta property="og:updated_time" content="2015-09-25T12:33:23.000Z">
+<meta property="og:description" content="刷题之前也有想过刷算法题，ACM什么的。因为算法课上的练习题，也是从各个竞赛选出来的。要么读不懂题意；要么读懂题意无从下手，然后就没有然后了＝ ＝
+前几天做了一道题，给定的数字型数组，求不同的起始和结束下标和。有种，“诶，这是算法题么？”，的轻松感。一开始用sum结合for循环，结果跑了7秒多😓，too young too simple啊。
+下午把题目描述用scrapy拿回本地了，打算每天练练手">
+<meta property="og:updated_time" content="2015-12-23T13:49:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="learn python the hard way-4">
-<meta name="twitter:description" content="ex45 You Make A Game之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。
-主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式">
+<meta name="twitter:title" content="preparing in algorithms">
+<meta name="twitter:description" content="刷题之前也有想过刷算法题，ACM什么的。因为算法课上的练习题，也是从各个竞赛选出来的。要么读不懂题意；要么读懂题意无从下手，然后就没有然后了＝ ＝
+前几天做了一道题，给定的数字型数组，求不同的起始和结束下标和。有种，“诶，这是算法题么？”，的轻松感。一开始用sum结合for循环，结果跑了7秒多😓，too young too simple啊。
+下午把题目描述用scrapy拿回本地了，打算每天练练手">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +62,7 @@
   };
 </script>
 
-  <title> learn python the hard way-4 | step by step </title>
+  <title> preparing in algorithms | step by step </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,7 +187,7 @@
           
           
             
-              learn python the hard way-4
+              preparing in algorithms
             
           
         </h1>
@@ -193,8 +196,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-25T20:33:23+08:00" content="2015-09-25">
-            2015-09-25
+          <time itemprop="dateCreated" datetime="2015-12-23T21:49:40+08:00" content="2015-12-23">
+            2015-12-23
           </time>
         </span>
 
@@ -203,8 +206,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/修炼/" itemprop="url" rel="index">
-                  <span itemprop="name">修炼</span>
+                <a href="/categories/杂记/" itemprop="url" rel="index">
+                  <span itemprop="name">杂记</span>
                 </a>
               </span>
 
@@ -227,10 +230,12 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="ex45_You_Make_A_Game">ex45 You Make A Game</h3><p>之前写了游戏的，理论上应该按照class、map之类的把老版本的升级。但是看了《未闻花名》sp之后，找到了另外一本也要漫改的漫画。于是就拿python去某个漫画网站，扒漫画的图片，用时一天半。</p>
-<p>主要用到了BeautifulSoup、request，由于每卷漫画的页数是在javascript里的，又根据正则表达式，获取页数组合成最终的URL。（原来有正则表达式的在线调试工具，之前不知道，瞎忙活了一天＝ ＝）</p>
-<p>考虑到下载量，为了节省时间（均衡负载有没有效果暂时不确定），需要加入多线程。介于线程小白，这块功能还得现炒现卖。等线程完善了，再把代码放到Github。</p>
-<p>最后，还是按照教程的任务，写游戏。教程快要完结了✌️</p>
+        <span itemprop="articleBody"><h3 id="刷题">刷题</h3><p>之前也有想过刷算法题，ACM什么的。因为算法课上的练习题，也是从各个竞赛选出来的。要么读不懂题意；要么读懂题意无从下手，然后就没有然后了＝ ＝</p>
+<p>前几天做了一道题，给定的数字型数组，求不同的起始和结束下标和。有种，“诶，这是算法题么？”，的轻松感。一开始用sum结合for循环，结果跑了7秒多😓，too young too simple啊。</p>
+<p>下午把题目描述用scrapy拿回本地了，打算每天练练手。这个月的早些时候，还打算了设计模式的。应该列个清单，贴在墙上。</p>
+<h3 id="搵工">搵工</h3><p>想找一份比较长久的工作，挪窝很麻烦啊。</p>
+<h3 id="年底">年底</h3><p>时间跑得好快，把算法和设计模式安排了，还得规划2016的愿望清单（想掌握的技能，想吃的东西，想读的书，想去的地方，想尝试的事情…）。</p>
+<p>总结2015这一年（感悟，成长，遗憾…）</p>
 </span>
       
     </div>
@@ -239,7 +244,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/algorithms/" rel="tag">#algorithms</a>
           
         </div>
       
@@ -248,13 +253,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/01/learn python the hard way-5/" rel="prev">learn python the hard way-5</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/15/learn python the hard way-3/" rel="next">learn python the hard way-3</a>
+              <a href="/2015/12/02/scrapy example/" rel="next">scrapy example</a>
             
           </div>
         </div>
@@ -364,7 +367,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex45_You_Make_A_Game"><span class="nav-number">1.</span> <span class="nav-text">ex45 You Make A Game</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#刷题"><span class="nav-number">1.</span> <span class="nav-text">刷题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搵工"><span class="nav-number">2.</span> <span class="nav-text">搵工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年底"><span class="nav-number">3.</span> <span class="nav-text">年底</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -418,9 +421,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/09/25/learn python the hard way-4/';
-      var disqus_title = 'learn python the hard way-4';
-      var disqus_url = 'sansang.github.io/2015/09/25/learn python the hard way-4/';
+      var disqus_identifier = '2015/12/23/preparing in algorithms/';
+      var disqus_title = 'preparing in algorithms';
+      var disqus_url = 'sansang.github.io/2015/12/23/preparing in algorithms/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
