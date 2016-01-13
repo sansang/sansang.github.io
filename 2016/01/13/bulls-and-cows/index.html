@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="algorithms," />
 
 
 
@@ -37,19 +37,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="之前在新疆有几天失眠，一是因为时差不适应；二是因为家里催着工作。回到川渝以后，作息立马正常了。今天很困，但是趁着思维清晰，把杂事清理清理。预计从今天开始的、接下来的十几天（也许之后很长一段时间），得披星戴月了。
-近期紧急的事情如下（排名分先后）1、简历的完善（1-2天）2、酒店预订系统及todo-list App的完善（10天）3、java，数据结构，算法等知识的回顾（6天）4、python的学习">
+<meta name="description" content="题意：给定两个输入（数字组成的字符串，假定长度相等），比如“7801”，“1870”。数值相等，所在字符串的位置相同视为bull；数值相等，所在字符串位置不同，视为cow。“7801”，“1870”的输出：1个bull3个cow。
+上个周做的题了，说说走过的弯路。
+第一回合第一感觉so easy啊，一个循环就解决了啊。用下标遍历，如果A[i]在B里边，并且A[i]==B[i],就是bull; 如果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sleepless">
-<meta property="og:url" content="sansang.github.io/2015/08/16/sleepless/index.html">
+<meta property="og:title" content="bulls and cows">
+<meta property="og:url" content="sansang.github.io/2016/01/13/bulls-and-cows/index.html">
 <meta property="og:site_name" content="step by step">
-<meta property="og:description" content="之前在新疆有几天失眠，一是因为时差不适应；二是因为家里催着工作。回到川渝以后，作息立马正常了。今天很困，但是趁着思维清晰，把杂事清理清理。预计从今天开始的、接下来的十几天（也许之后很长一段时间），得披星戴月了。
-近期紧急的事情如下（排名分先后）1、简历的完善（1-2天）2、酒店预订系统及todo-list App的完善（10天）3、java，数据结构，算法等知识的回顾（6天）4、python的学习">
-<meta property="og:updated_time" content="2015-08-15T16:31:35.000Z">
+<meta property="og:description" content="题意：给定两个输入（数字组成的字符串，假定长度相等），比如“7801”，“1870”。数值相等，所在字符串的位置相同视为bull；数值相等，所在字符串位置不同，视为cow。“7801”，“1870”的输出：1个bull3个cow。
+上个周做的题了，说说走过的弯路。
+第一回合第一感觉so easy啊，一个循环就解决了啊。用下标遍历，如果A[i]在B里边，并且A[i]==B[i],就是bull; 如果">
+<meta property="og:updated_time" content="2016-01-13T03:24:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sleepless">
-<meta name="twitter:description" content="之前在新疆有几天失眠，一是因为时差不适应；二是因为家里催着工作。回到川渝以后，作息立马正常了。今天很困，但是趁着思维清晰，把杂事清理清理。预计从今天开始的、接下来的十几天（也许之后很长一段时间），得披星戴月了。
-近期紧急的事情如下（排名分先后）1、简历的完善（1-2天）2、酒店预订系统及todo-list App的完善（10天）3、java，数据结构，算法等知识的回顾（6天）4、python的学习">
+<meta name="twitter:title" content="bulls and cows">
+<meta name="twitter:description" content="题意：给定两个输入（数字组成的字符串，假定长度相等），比如“7801”，“1870”。数值相等，所在字符串的位置相同视为bull；数值相等，所在字符串位置不同，视为cow。“7801”，“1870”的输出：1个bull3个cow。
+上个周做的题了，说说走过的弯路。
+第一回合第一感觉so easy啊，一个循环就解决了啊。用下标遍历，如果A[i]在B里边，并且A[i]==B[i],就是bull; 如果">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +62,7 @@
   };
 </script>
 
-  <title> sleepless | step by step </title>
+  <title> bulls and cows | step by step </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,7 +187,7 @@
           
           
             
-              sleepless
+              bulls and cows
             
           
         </h1>
@@ -193,8 +196,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-16T00:31:35+08:00" content="2015-08-16">
-            2015-08-16
+          <time itemprop="dateCreated" datetime="2016-01-13T11:24:51+08:00" content="2016-01-13">
+            2016-01-13
           </time>
         </span>
 
@@ -203,8 +206,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/杂记/" itemprop="url" rel="index">
-                  <span itemprop="name">杂记</span>
+                <a href="/categories/修炼/" itemprop="url" rel="index">
+                  <span itemprop="name">修炼</span>
                 </a>
               </span>
 
@@ -227,29 +230,37 @@
       
 
       
-        <span itemprop="articleBody"><p>之前在新疆有几天失眠，一是因为时差不适应；二是因为家里催着工作。<br>回到川渝以后，作息立马正常了。今天很困，但是趁着思维清晰，把杂事清理清理。<br>预计从今天开始的、接下来的十几天（也许之后很长一段时间），得披星戴月了。</p>
-<h3 id="近期紧急的事情如下（排名分先后）">近期紧急的事情如下（排名分先后）</h3><p>1、简历的完善（1-2天）<br>2、酒店预订系统及todo-list App的完善（10天）<br>3、java，数据结构，算法等知识的回顾（6天）<br>4、python的学习（待定）</p>
-<h3 id="近期的日常生活计划如下">近期的日常生活计划如下</h3><p>1、跑步＋拉伸（1Hr／day）<br>2、素食＋水果（everyday）<br>3、coding＋review（10＋Hrs／everyday）</p>
-<h3 id="近期预算的支出">近期预算的支出</h3><p>1、运动鞋<br>2、住宿＋饮食<br>3、Apple care<br>4、香皂＋乳液<br>5、机票（也许）</p>
-<p>以上，add oil &amp; good night～</p>
+        <span itemprop="articleBody"><p>题意：给定两个输入（数字组成的字符串，假定长度相等），比如“7801”，“1870”。数值相等，所在字符串的位置相同视为bull；数值相等，所在字符串位置不同，视为cow。<br>“7801”，“1870”的输出：1个bull3个cow。</p>
+<p>上个周做的题了，说说走过的弯路。</p>
+<h3 id="第一回合">第一回合</h3><p>第一感觉so easy啊，一个循环就解决了啊。用下标遍历，如果A[i]在B里边，并且A[i]==B[i],就是bull; 如果不等，就是cow。</p>
+<p>如果输入是“0111”，“1100”，字符串包含了重复的字符，bull的逻辑没有问题，所以结果没有问题。但cow的判断标准，就不对了。</p>
+<h3 id="第二回合">第二回合</h3><p>嗯，要把重复的字符筛选出来，只判断A[i]在B里边不足以解决问题。判断cow的时候，把它在AB所对应的下标，与用于存放cow下标的A_cow和B_cow数组匹配。下标的值不在A_cow和B_cow里，算作cow，同时更新下标。</p>
+<p>忘了考虑bull是特殊的cow😓</p>
+<h3 id="第三回合">第三回合</h3><p>记录bull、cow的下标。</p>
+<p>嗯，这次是解决到具体问题了。但是当输入的字符串长度大于1000呢？效率就低。</p>
+<h3 id="第四回合">第四回合</h3><p>前三回合反映出的问题是，逻辑不清晰。现在理理思路，倒是不会无从下手了。<br>1第二回合，在A[i]==B[j]的时候，为何没考虑到ij不应该相等？<br>2每个步骤消耗的时间，整理出来看看。</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/algorithms/" rel="tag">#algorithms</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/01/learn python the hard way-1/" rel="prev">learn python the hard way</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/06/unexpected trip/" rel="next">unexpected trip</a>
+              <a href="/2016/01/01/hello-2016/" rel="next">hello 2016</a>
             
           </div>
         </div>
@@ -359,7 +370,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#近期紧急的事情如下（排名分先后）"><span class="nav-number">1.</span> <span class="nav-text">近期紧急的事情如下（排名分先后）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#近期的日常生活计划如下"><span class="nav-number">2.</span> <span class="nav-text">近期的日常生活计划如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#近期预算的支出"><span class="nav-number">3.</span> <span class="nav-text">近期预算的支出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一回合"><span class="nav-number">1.</span> <span class="nav-text">第一回合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二回合"><span class="nav-number">2.</span> <span class="nav-text">第二回合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三回合"><span class="nav-number">3.</span> <span class="nav-text">第三回合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四回合"><span class="nav-number">4.</span> <span class="nav-text">第四回合</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -413,9 +424,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/08/16/sleepless/';
-      var disqus_title = 'sleepless';
-      var disqus_url = 'sansang.github.io/2015/08/16/sleepless/';
+      var disqus_identifier = '2016/01/13/bulls-and-cows/';
+      var disqus_title = 'bulls and cows';
+      var disqus_url = 'sansang.github.io/2016/01/13/bulls-and-cows/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
