@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -37,25 +37,133 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="ex1 A Good First Program参照learn python the hard way学习中，因为不想安装编辑器，所以用Terminal中的vi来编辑。
-ex2 Comments And Pound Characters#(井号)作为注释符号。
-ex3 Numbers And Math加、减、乘、除、模、布尔运算，精度。
-ex4 Variables And Names变量的使用，在">
+<meta name="description" content="之前遇到的一些简单的mysql查询问题，总结一下。
+case01 删除表中某列存在的重复行，保留id最小行table test01
+
+
+
+Id
+Email
+
+
+
+
+1
+tony@test111.com
+
+
+2
+sam@test111.com
+
+
+3
+tony@test111.com
+
+
+
+result
+
+
+
+Id
+Email
+
+
+
+
+1
+tony@test111.com
+
+
+2
+sam@test1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="learn python the hard way">
-<meta property="og:url" content="sansang.github.io/2015/09/01/learn python the hard way-1/index.html">
+<meta property="og:title" content="mysql simple queries">
+<meta property="og:url" content="sansang.github.io/2016/02/28/mysql-query/index.html">
 <meta property="og:site_name" content="keep it simple stupid">
-<meta property="og:description" content="ex1 A Good First Program参照learn python the hard way学习中，因为不想安装编辑器，所以用Terminal中的vi来编辑。
-ex2 Comments And Pound Characters#(井号)作为注释符号。
-ex3 Numbers And Math加、减、乘、除、模、布尔运算，精度。
-ex4 Variables And Names变量的使用，在">
-<meta property="og:updated_time" content="2015-09-01T15:24:44.000Z">
+<meta property="og:description" content="之前遇到的一些简单的mysql查询问题，总结一下。
+case01 删除表中某列存在的重复行，保留id最小行table test01
+
+
+
+Id
+Email
+
+
+
+
+1
+tony@test111.com
+
+
+2
+sam@test111.com
+
+
+3
+tony@test111.com
+
+
+
+result
+
+
+
+Id
+Email
+
+
+
+
+1
+tony@test111.com
+
+
+2
+sam@test1">
+<meta property="og:updated_time" content="2016-02-28T04:29:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="learn python the hard way">
-<meta name="twitter:description" content="ex1 A Good First Program参照learn python the hard way学习中，因为不想安装编辑器，所以用Terminal中的vi来编辑。
-ex2 Comments And Pound Characters#(井号)作为注释符号。
-ex3 Numbers And Math加、减、乘、除、模、布尔运算，精度。
-ex4 Variables And Names变量的使用，在">
+<meta name="twitter:title" content="mysql simple queries">
+<meta name="twitter:description" content="之前遇到的一些简单的mysql查询问题，总结一下。
+case01 删除表中某列存在的重复行，保留id最小行table test01
+
+
+
+Id
+Email
+
+
+
+
+1
+tony@test111.com
+
+
+2
+sam@test111.com
+
+
+3
+tony@test111.com
+
+
+
+result
+
+
+
+Id
+Email
+
+
+
+
+1
+tony@test111.com
+
+
+2
+sam@test1">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +173,7 @@ ex4 Variables And Names变量的使用，在">
   };
 </script>
 
-  <title> learn python the hard way | keep it simple stupid </title>
+  <title> mysql simple queries | keep it simple stupid </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -190,7 +298,7 @@ ex4 Variables And Names变量的使用，在">
           
           
             
-              learn python the hard way
+              mysql simple queries
             
           
         </h1>
@@ -199,8 +307,8 @@ ex4 Variables And Names变量的使用，在">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-01T23:24:44+08:00" content="2015-09-01">
-            2015-09-01
+          <time itemprop="dateCreated" datetime="2016-02-28T12:29:44+08:00" content="2016-02-28">
+            2016-02-28
           </time>
         </span>
 
@@ -233,37 +341,206 @@ ex4 Variables And Names变量的使用，在">
       
 
       
-        <span itemprop="articleBody"><h3 id="ex1_A_Good_First_Program">ex1 A Good First Program</h3><p>参照learn python the hard way学习中，因为不想安装编辑器，所以用Terminal中的vi来编辑。</p>
-<h3 id="ex2_Comments_And_Pound_Characters">ex2 Comments And Pound Characters</h3><p>#(井号)作为注释符号。</p>
-<h3 id="ex3_Numbers_And_Math">ex3 Numbers And Math</h3><p>加、减、乘、除、模、布尔运算，精度。</p>
-<h3 id="ex4_Variables_And_Names">ex4 Variables And Names</h3><p>变量的使用，在print输出时，如print ”Hey %s there.” % “you”，输出 Hey you there。</p>
-<h3 id="ex5_More_Variables_And_Printing">ex5 More Variables And Printing</h3><p>%s, %d, %r用于整理输出格式，round()函数用于四舍五入取整。</p>
-<h3 id="ex6_Strings_And_Text">ex6 Strings And Text</h3><p>字符串可以单引号或者双引号，%r用于debugging，False和True首字母大写，字符串拼接用＋(加号)。</p>
-<h3 id="ex7_More_Printing">ex7 More Printing</h3><p>python里字符大于80不好，两个print，之间加上逗号，实际显示为空格。</p>
-<h3 id="ex8_Printing,_Printing">ex8 Printing, Printing</h3><p>最后一个输出有点奇怪，第三个字符串是双引号，其他的都是单引号。</p>
-<h3 id="ex9_Printing,_Printing,_Printing">ex9 Printing, Printing, Printing</h3><p>\n输出时换行，前后用三个双引号夹起来的内容可以多行。</p>
-<h3 id="ex10_What_Was_That?">ex10 What Was That?</h3><p>\, \’, \”, \a, \b, \f, \n, \N{name}, \r ASCII, \t ASCII, \uxxxx, \uxxxxxxxx, \v, \ooo, \xhh。三个单引号也能多行输出。</p>
-<h3 id="ex11_Asking_Questions">ex11 Asking Questions</h3><p>raw_input()可以获取Terminal键入的数据，保存为字符串。int(raw_input())可将输入转为整型。input()也可以用于输入数据，但有安全方面的问题，并且在输入测试时，输入字符串报语法错误。</p>
-<h3 id="ex12_Prompting_People">ex12 Prompting People</h3><p>raw_input(“Name? ”)可以提示Name?再接收输入数据。使用pydoc加参数，可查询python的文档。</p>
-<h3 id="ex13_Parameters,_Unpacking,_Variables">ex13 Parameters, Unpacking, Variables</h3><p>顶部添加<br>from sys import argv<br>后边代码中设置参数变量个数，在命令行添加相应个数的参数。在代码运行时获取的参数，用raw_input()。</p>
-<h3 id="ex14_Prompting_And_Passing">ex14 Prompting And Passing</h3><p>三个双引号里的内容也可以用 % (变量，变量，..)整理输出格式。</p>
-<h3 id="ex15_Reading_Files">ex15 Reading Files</h3><p>打开文件用open(filename)，关闭文件用close()，读取文件用read()，退出python环境用quit()。</p>
-<h3 id="ex16_Reading_And_Writing_Files">ex16 Reading And Writing Files</h3><p>查看了pydoc open，没有关于truncate()的，搜索stackoverflow上的结果是，作者希望我们有查看文档的习惯，truncate()在open方法里，是个可选条件，用于截取文本。write()方法写入文本。</p>
-<h3 id="ex17_More_Files">ex17 More Files</h3><p>把已经存在的A文件写入新的B文件，后边的问题里说到，in data = open(from_file).read()，python会运行完这一行，关闭文本。import已经写好的方法，确实很省事。</p>
-<h3 id="ex18_Names,_Variables,_Code,_Functions">ex18 Names, Variables, Code, Functions</h3><p>def自定义函数，参数可选，在一个功能块里用4个空格缩进表示。</p>
-<h3 id="ex19_Functions_and_Variables">ex19 Functions and Variables</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> ”x + y =”,x + <span class="literal">y</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">if</span><span class="params">(a &gt; b)</span></span>:</span><br><span class="line">    print “<span class="tag">a</span> is greater than <span class="tag">b</span>.”</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print “<span class="tag">a</span> is less than <span class="tag">b</span>.”</span><br></pre></td></tr></table></figure>
-<h3 id="ex20_Functions_And_Files">ex20 Functions And Files</h3><p>file.seek(0)指向文件的开头，即0byte处。</p>
-<h3 id="ex21_Functions_Can_Return_Something">ex21 Functions Can Return Something</h3><p>函数返回值，计算时raw_input()的输入值需要转型。</p>
-<h3 id="ex22_What_Do_You_Know_So_Far?">ex22 What Do You Know So Far?</h3><p>总结回顾</p>
-<h3 id="ex23_Read_Some_Code">ex23 Read Some Code</h3><p>读了2个python写的爬虫，基本上能看懂，主要是关于file的read，write和报文解析之类的</p>
-<h3 id="ex24_More_Practice">ex24 More Practice</h3><p>回顾</p>
-<h3 id="ex25_Even_More_Practice">ex25 Even More Practice</h3><p>words.pop(0)第一个单词出去，words.pop(-1)最后一个单词出去。sentence.split(‘ ‘)根据空格分隔句子，即取句子里的单词。sorted()升序排序。<br>在python环境下，<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"><span class="keyword">import</span> ex25</span></span><br></pre></td></tr></table></figure></p>
-<p>即可使用ex25里的函数。</p>
-<h3 id="ex26_Congratulations,_Take_A_Test!">ex26 Congratulations, Take A Test!</h3><p>ex24和ex25的综合，修改代码时，应该注释掉有错那行的代码，下边拷贝此行再进行修改。</p>
-<h3 id="ex27_Memorizing_Logic">ex27 Memorizing Logic</h3><p>布尔运算</p>
-<h3 id="ex28_Boolean_Practice">ex28 Boolean Practice</h3><p>布尔运算，本来想写个方法，打印条件语句和结果，但是方法传进去的值是字符串，bool()之后为True 💔</p>
-<h3 id="ex29_What_If">ex29 What If</h3></span>
+        <span itemprop="articleBody"><p>之前遇到的一些简单的mysql查询问题，总结一下。</p>
+<h3 id="case01_删除表中某列存在的重复行，保留id最小行">case01 删除表中某列存在的重复行，保留id最小行</h3><p>table <code>test01</code></p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th style="text-align:center">Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">tony@test111.com</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">sam@test111.com</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">tony@test111.com</td>
+</tr>
+</tbody>
+</table>
+<p>result</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th style="text-align:center">Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">tony@test111.com</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">sam@test111.com</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> A <span class="keyword">FROM</span> test01 A, test01 B <span class="keyword">WHERE</span> A.<span class="keyword">Id</span> &gt; B.<span class="keyword">Id</span> <span class="keyword">AND</span> A.Email = B.Email;</span></span><br></pre></td></tr></table></figure>
+<h3 id="case02_查询不属于5班的学生姓名">case02 查询不属于5班的学生姓名</h3><p>table <code>student</code></p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th style="text-align:center">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">Jim</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">Larry</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">Sam</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">Tom</td>
+</tr>
+</tbody>
+</table>
+<p>table <code>class5</code></p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th style="text-align:center">studentId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>result</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larry</td>
+</tr>
+<tr>
+<td>Tom</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">select A.<span class="keyword">Name</span> <span class="keyword">from</span> student A <span class="keyword">left</span> <span class="keyword">join</span> class5 B <span class="keyword">on</span> B.studentId = A.<span class="keyword">Id</span> <span class="keyword">where</span> B.<span class="keyword">Id</span> <span class="keyword">is</span> <span class="literal">null</span>;</span></span><br></pre></td></tr></table></figure>
+<h3 id="case03_查询重复的行">case03 查询重复的行</h3><p>table <code>test03</code></p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th style="text-align:center">Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">tony@test111.com</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">sam@test111.com</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">tony@test111.com</td>
+</tr>
+</tbody>
+</table>
+<p>result</p>
+<table>
+<thead>
+<tr>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tony@test111.com</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select Email from <span class="keyword">Person</span> group by Email having count(Email) &gt; 1;</span><br></pre></td></tr></table></figure>
+<h3 id="case04_查询消费大于前一天（昨天）的记录">case04 查询消费大于前一天（昨天）的记录</h3><p>table <code>outgo</code></p>
+<table>
+<thead>
+<tr>
+<th>Id(INT)</th>
+<th style="text-align:left">Date(DATE)</th>
+<th style="text-align:center">Cost(INT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">2015-01-01</td>
+<td style="text-align:center">60</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">2015-01-02</td>
+<td style="text-align:center">25</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">2015-01-03</td>
+<td style="text-align:center">50</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:left">2015-01-04</td>
+<td style="text-align:center">30</td>
+</tr>
+</tbody>
+</table>
+<p>result</p>
+<table>
+<thead>
+<tr>
+<th>Id(INT)</th>
+<th style="text-align:left">Date(DATE)</th>
+<th style="text-align:center">Cost(INT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">2015-01-01</td>
+<td style="text-align:center">60</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">2015-01-03</td>
+<td style="text-align:center">50</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">select B <span class="keyword">from</span> outgo A <span class="keyword">join</span> outgo B <span class="keyword">on</span> B.<span class="built_in">Date</span> = ADDDATE(A.<span class="built_in">Date</span>, <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>) <span class="keyword">where</span>  B.<span class="keyword">Cost</span> &gt; A.<span class="keyword">Cost</span>;</span></span><br></pre></td></tr></table></figure>
+</span>
       
     </div>
 
@@ -271,7 +548,7 @@ ex4 Variables And Names变量的使用，在">
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/mysql/" rel="tag">#mysql</a>
           
         </div>
       
@@ -280,13 +557,11 @@ ex4 Variables And Names变量的使用，在">
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/12/learn python the hard way-2/" rel="prev">learn python the hard way-2</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/16/sleepless/" rel="next">sleepless</a>
+              <a href="/2016/02/28/interview-note/" rel="next">front end interview note</a>
             
           </div>
         </div>
@@ -396,7 +671,7 @@ ex4 Variables And Names变量的使用，在">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex1_A_Good_First_Program"><span class="nav-number">1.</span> <span class="nav-text">ex1 A Good First Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex2_Comments_And_Pound_Characters"><span class="nav-number">2.</span> <span class="nav-text">ex2 Comments And Pound Characters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex3_Numbers_And_Math"><span class="nav-number">3.</span> <span class="nav-text">ex3 Numbers And Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex4_Variables_And_Names"><span class="nav-number">4.</span> <span class="nav-text">ex4 Variables And Names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex5_More_Variables_And_Printing"><span class="nav-number">5.</span> <span class="nav-text">ex5 More Variables And Printing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex6_Strings_And_Text"><span class="nav-number">6.</span> <span class="nav-text">ex6 Strings And Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex7_More_Printing"><span class="nav-number">7.</span> <span class="nav-text">ex7 More Printing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex8_Printing,_Printing"><span class="nav-number">8.</span> <span class="nav-text">ex8 Printing, Printing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex9_Printing,_Printing,_Printing"><span class="nav-number">9.</span> <span class="nav-text">ex9 Printing, Printing, Printing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex10_What_Was_That?"><span class="nav-number">10.</span> <span class="nav-text">ex10 What Was That?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex11_Asking_Questions"><span class="nav-number">11.</span> <span class="nav-text">ex11 Asking Questions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex12_Prompting_People"><span class="nav-number">12.</span> <span class="nav-text">ex12 Prompting People</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex13_Parameters,_Unpacking,_Variables"><span class="nav-number">13.</span> <span class="nav-text">ex13 Parameters, Unpacking, Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex14_Prompting_And_Passing"><span class="nav-number">14.</span> <span class="nav-text">ex14 Prompting And Passing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex15_Reading_Files"><span class="nav-number">15.</span> <span class="nav-text">ex15 Reading Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex16_Reading_And_Writing_Files"><span class="nav-number">16.</span> <span class="nav-text">ex16 Reading And Writing Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex17_More_Files"><span class="nav-number">17.</span> <span class="nav-text">ex17 More Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex18_Names,_Variables,_Code,_Functions"><span class="nav-number">18.</span> <span class="nav-text">ex18 Names, Variables, Code, Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex19_Functions_and_Variables"><span class="nav-number">19.</span> <span class="nav-text">ex19 Functions and Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex20_Functions_And_Files"><span class="nav-number">20.</span> <span class="nav-text">ex20 Functions And Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex21_Functions_Can_Return_Something"><span class="nav-number">21.</span> <span class="nav-text">ex21 Functions Can Return Something</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex22_What_Do_You_Know_So_Far?"><span class="nav-number">22.</span> <span class="nav-text">ex22 What Do You Know So Far?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex23_Read_Some_Code"><span class="nav-number">23.</span> <span class="nav-text">ex23 Read Some Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex24_More_Practice"><span class="nav-number">24.</span> <span class="nav-text">ex24 More Practice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex25_Even_More_Practice"><span class="nav-number">25.</span> <span class="nav-text">ex25 Even More Practice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex26_Congratulations,_Take_A_Test!"><span class="nav-number">26.</span> <span class="nav-text">ex26 Congratulations, Take A Test!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex27_Memorizing_Logic"><span class="nav-number">27.</span> <span class="nav-text">ex27 Memorizing Logic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex28_Boolean_Practice"><span class="nav-number">28.</span> <span class="nav-text">ex28 Boolean Practice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex29_What_If"><span class="nav-number">29.</span> <span class="nav-text">ex29 What If</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#case01_删除表中某列存在的重复行，保留id最小行"><span class="nav-number">1.</span> <span class="nav-text">case01 删除表中某列存在的重复行，保留id最小行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case02_查询不属于5班的学生姓名"><span class="nav-number">2.</span> <span class="nav-text">case02 查询不属于5班的学生姓名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case03_查询重复的行"><span class="nav-number">3.</span> <span class="nav-text">case03 查询重复的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case04_查询消费大于前一天（昨天）的记录"><span class="nav-number">4.</span> <span class="nav-text">case04 查询消费大于前一天（昨天）的记录</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -450,9 +725,9 @@ ex4 Variables And Names变量的使用，在">
 
     <script type="text/javascript">
       var disqus_shortname = 'sansang22';
-      var disqus_identifier = '2015/09/01/learn python the hard way-1/';
-      var disqus_title = 'learn python the hard way';
-      var disqus_url = 'sansang.github.io/2015/09/01/learn python the hard way-1/';
+      var disqus_identifier = '2016/02/28/mysql-query/';
+      var disqus_title = 'mysql simple queries';
+      var disqus_url = 'sansang.github.io/2016/02/28/mysql-query/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
